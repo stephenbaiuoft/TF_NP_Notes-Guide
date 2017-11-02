@@ -1,0 +1,39 @@
+Variable
+Motivation behind tf.Variable
+
+In ML, we typically want a model that takes arbitrary inputs. To make
+the model trainable, we need to be able to modify the graph to get new outputs
+with the same inputs!
+
+
+Variables: allow us to add trainable parameters to a graph
+
+Example of a linear model
+# W can be modified
+W = tf.Variable([.3], dtype=tf.float32)
+b = tf.Variable([0.3], dtype=tf.float32)
+x = tf.placeholder(tf.float32)
+
+# now define your model_tensor
+linear_model = W * x + b
+
+Note: variables not NOT initialized when you call tf.Variable (tf.Constant(4.0)
+ actually initializes that constant tensor)
+
+Call this:
+# lol init variables and then sess.run(init)
+init = tf.global_variables_initializer()
+sess.run(init)
+
+# additionally
+init is a handle to the TensorFlow sub-graph that initializes all the global
+variables.
+
+Now, let's run the linear_model
+
+# feeding placehodler inputs
+print(sess.run(linear_model, {x:[1,2,3,4]}))
+
+# we get the output ==> this is directly off your linear definition and initial
+# variable values
+[0, 0.3, 0.6, 0.9]

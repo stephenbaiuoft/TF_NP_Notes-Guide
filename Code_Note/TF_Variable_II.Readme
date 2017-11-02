@@ -1,0 +1,11 @@
+cont'd with linear_model defined in part I
+
+# create a y placeholder for our expected output wrt x
+y = tf.placeholder(tf.float32)
+
+# now create that loss function
+# linear_model was defined earlier: linear_model = W*x + b
+# define L2 as our objective function
+squared_deltas = tf.square(linear_model - y)
+# this adds up all losses acorss each x data set
+loss = tf.reduce_sum(squared_deltas)

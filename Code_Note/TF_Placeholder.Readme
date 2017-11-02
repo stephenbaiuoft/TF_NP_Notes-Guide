@@ -1,0 +1,30 @@
+Placeholder in TF ==> for feeding float/integer inputs!!!
+
+sess = tf.Session()
+
+# specify the type
+a = tf.placeholder(tf.float32)
+b = tf.placeholder(tf.float32)
+c = tf.add(a,b)
+c = a + b # this is a shortcut in this case
+
+feeed_dict argument to run method!
+
+
+sess.run(c, {a:[1,3],b:[2,4]})
+# this would give c the value of [3, 7]
+
+# you see c_triple is like a model u build, and
+# whenever running it, you need to provide parameters in that model!
+c_triple = c * 3
+sess.run(c,{a:[3], b:[4.5]})
+# produces 22.5
+
+# changing variable values
+# fixW and fixb are operations!!!!!! in this case!
+fixW = tf.assign(W, [-1.])
+fixb = tf.assign(b, [1.])
+
+# now perform fixW, fix ==> W, and b has different values!!!
+sess.run([fixW, fixb])
+sess.run(loss, {x:[1,2,3,4], y:[0,-1,-2,-3]})

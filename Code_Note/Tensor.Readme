@@ -1,0 +1,17 @@
+Tensorflow (2 parts)
+-building computational graph
+-running computational graph
+
+Computational Graph
+: a series of Tensforflow Operations into a graph of nodes
+
+Node
+: takes >=0 tensors as inputs and produces 1 tensor output
+-> node3 = tf.add(node_a, node_b)
+
+Constant Node
+: takes 0 input and output 1 tensor
+-> c_node = tf.constant(4.0)
+
+TensorBoard
+: display a picture of the computational graph

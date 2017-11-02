@@ -1,0 +1,30 @@
+tf.train API
+
+Tensorflow provides optimizer that slowly change each variable
+in order to minimize the loss function!!! The simplest optimizer is
+gradient descent.
+
+Tensorflow can automatically produce derivatives given only a decription
+of the model using the function tf.gradients!!!
+
+
+# Example of gradient descent on linear_model
+
+optimizer = tf.train.GradientDescentOptimizer(0.01)
+train = optimizer.minimize(loss)
+
+sess.run(init) # reset values to incorrect defaults ==> our linear_model
+
+for i in range(1000):
+  sess.run(train, {x[1,2,3,4], y[0,-1,-2,-3]})
+
+# getting output values of our variables
+# after 1000 iteration
+print(sess.run([W,b]))
+
+
+# return values for optimizer.minimize(loss)
+This is the first part of minimize().
+It returns a list of (gradient, variable) pairs where "gradient" is
+the gradient for "variable". Note that "gradient" can be a Tensor,
+an IndexedSlices, or None if there is no gradient for the given variable.
